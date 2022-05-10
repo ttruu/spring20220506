@@ -18,6 +18,7 @@ public class Ex07Controller {
 		return "redirect:https://www.naver.com";
 	}
 	
+	// 예전의 방식
 	@RequestMapping("sub02")
 	public String method02(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String location = request.getContextPath() + "/ex06/sub01";

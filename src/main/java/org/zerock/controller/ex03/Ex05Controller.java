@@ -38,7 +38,7 @@ public class Ex05Controller {
 	}
 	
 	
-	//ex05/sub02?name=jin&age=11&address=seoul
+	//ex05/sub03?name=jin&age=11&address=seoul
 	@RequestMapping("sub03") 
 	public void method03(@ModelAttribute Customer cus) {
 		System.out.println(cus);

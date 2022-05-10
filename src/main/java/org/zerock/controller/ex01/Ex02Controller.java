@@ -20,7 +20,7 @@ public class Ex02Controller {
 	@RequestMapping(value="sub03")
 	// value 생략 가능
 	public void method03() {
-		System.out.println("/ex02/sub3 일함");
+		System.out.println("/ex02/sub03 일함");
 	}
 	
 	@RequestMapping({"sub04", "sub05"}) 

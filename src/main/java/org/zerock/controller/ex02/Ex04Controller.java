@@ -22,6 +22,7 @@ public class Ex04Controller {
 		// 
 	}
 	
+	
 	// @RequestParam
 	@RequestMapping("sub02")
 	public void method02(@RequestParam("name") String n ) {
@@ -33,7 +34,7 @@ public class Ex04Controller {
 		System.out.println(n);
 		System.out.println(age);
 		//int a = Integer.parseInt(age);
-		//위의 일을 리퀘스트가 해주고 있다 형변환
+		//형변환을 리퀘스트가 해주고 있다
 	}
 	
 	@RequestMapping("sub04")
@@ -41,6 +42,7 @@ public class Ex04Controller {
 		System.out.println(age);
 	}
 	
+	// 어노테이션을 사용하지 않을때 방법
 	@RequestMapping("sub05")
 	public void method05(HttpServletRequest request) {
 		// 1. request parameter 수집/가공
@@ -53,20 +55,22 @@ public class Ex04Controller {
 		System.out.println(age);
 	}
 	
+	
 	@RequestMapping("sub06")
 	public void method06(@RequestParam String name, @RequestParam int age) {
+		// ("age") 괄호 생략 가능
 		System.out.println(name);
 		System.out.println(age);
 	}
 	
 	@RequestMapping("sub07")
 	public void method07(String name, int age) {
+		// @requestParam이 생략
 		System.out.println(name);
 		System.out.println(age);
-		// @requestparam이 생략되어 있는 것
 	}
 	
-	
+	// 문제 풀어 봄
 	@RequestMapping("sub08")
 	public void method08(String address, int number) {
 		System.out.println(address); // seoul
