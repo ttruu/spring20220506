@@ -12,18 +12,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<%-- <c:url value="/ex14/sub06" var="employeeUrl"></c:url>  --%><!-- 컨텐스트패스로 들어감 -->
-	<h1>${message }</h1>
-	<h1>직원 입력</h1>
-	<form action="${pageContext.request.contextPath }/ex14/sub06" method="post">
-		firstName : <input type="text" name="firstName" value="son" /> <br />
-		lastName : <input type="text" name="lastName" value="H.M." /> <br />
-		photo : <input type="text" name="photo" value="EMPID00.pic" /> <br />
-		birthDate : <input type="date" name="birthDate" value="1999-02-02" /> <br /> 
-		notes : <input type="text" name="notes" value="test" /> <br />
-		<!-- <textarea name="notes" id="" cols="30" rows="10">US President...</textarea>  -->
-		<button>등록</button>
+	<h1>${board.id }번 게시물 보기</h1>
+	<c:url value="/ex15/board/modify" var="modifyLink">	</c:url>
+	
+	<form action="${modifyLink }" method="post">
+	<input type="hidden" name="id" value="${board.id }" />
+	
+	제목 : <input type="text" value="${board.title }" name="title" /> <br />
+	
+	본문 : <textarea rows="10" cols="30" name="body" >${board.body }</textarea> <br />
+	
+	작성일시 : <input type="datetime-local" value="${board.inserted }" readonly/> <br />
+	
+	<button>수정</button>
 	</form>
 </body>
 </html>

@@ -12,18 +12,32 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<%-- <c:url value="/ex14/sub06" var="employeeUrl"></c:url>  --%><!-- 컨텐스트패스로 들어감 -->
-	<h1>${message }</h1>
-	<h1>직원 입력</h1>
-	<form action="${pageContext.request.contextPath }/ex14/sub06" method="post">
-		firstName : <input type="text" name="firstName" value="son" /> <br />
-		lastName : <input type="text" name="lastName" value="H.M." /> <br />
-		photo : <input type="text" name="photo" value="EMPID00.pic" /> <br />
-		birthDate : <input type="date" name="birthDate" value="1999-02-02" /> <br /> 
-		notes : <input type="text" name="notes" value="test" /> <br />
-		<!-- <textarea name="notes" id="" cols="30" rows="10">US President...</textarea>  -->
-		<button>등록</button>
-	</form>
+	<h1>고객 목록</h1>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>NAME</th>
+				<th>CONTACT NAME</th>
+				<th>ADDRESS</th>
+				<th>CITY</th>
+				<th>POSTALCODE</th>
+				<th>COUNTRY</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${customers }" var="cus">
+				<tr>
+					<td>${cus.id }</td>
+					<td>${cus.customerName }</td>
+					<td>${cus.contactName }</td>
+					<td>${cus.address }</td>
+					<td>${cus.city }</td>
+					<td>${cus.postalCode }</td>
+					<td>${cus.country }</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 </body>
 </html>

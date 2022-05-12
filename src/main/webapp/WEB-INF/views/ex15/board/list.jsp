@@ -12,18 +12,31 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<%-- <c:url value="/ex14/sub06" var="employeeUrl"></c:url>  --%><!-- 컨텐스트패스로 들어감 -->
-	<h1>${message }</h1>
-	<h1>직원 입력</h1>
-	<form action="${pageContext.request.contextPath }/ex14/sub06" method="post">
-		firstName : <input type="text" name="firstName" value="son" /> <br />
-		lastName : <input type="text" name="lastName" value="H.M." /> <br />
-		photo : <input type="text" name="photo" value="EMPID00.pic" /> <br />
-		birthDate : <input type="date" name="birthDate" value="1999-02-02" /> <br /> 
-		notes : <input type="text" name="notes" value="test" /> <br />
-		<!-- <textarea name="notes" id="" cols="30" rows="10">US President...</textarea>  -->
-		<button>등록</button>
-	</form>
+	<h1>글 목록</h1>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>title</th>
+				<th>inserted</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<c:forEach items="${boardList }" var="board">
+			<tr>
+				<td>${board.id }</td>
+				<td>
+					<c:url value="/ex15/board/${board.id }" var="link"></c:url>
+					<a href="${link }">
+					${board.title }
+					</a>
+				
+				</td>
+				<td>${board.inserted }</td>
+			</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 </body>
 </html>

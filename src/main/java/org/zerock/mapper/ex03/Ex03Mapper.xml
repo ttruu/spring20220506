@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.ex03.Ex03Mapper">
+  
+  <select id="selectCustomerNameById" resultType="String">
+    SELECT CustomerName FROM Customers WHERE CustomerID = #{id}
+  </select>
+  
+  <select id="selectEmployeeFirstNameById" resultType="String">
+	SELECT FirstName FROM Employees WHERE EmployeeID = #{id}
+  </select>
+  
+  <select id="selectBoard" resultType="org.zerock.domain.ex02.BoardDto">
+  	SELECT id, title, body, inserted FROM Board ORDER BY id DESC
+  </select>
+  
+  <select id="getBoard" resultType="org.zerock.domain.ex02.BoardDto">
+  	SELECT id, title, body, inserted FROM Board WHERE id = #{id}
+  </select>
+  
+  <update id="updateBoard" >
+  	UPDATE Board SET title = #{title}, body = #{body} WHERE id = #{id}
+  </update>
+</mapper>
+
+<!-- org.zerock.mapper.ex03.Ex03Mapper 인터페이스 이름 -->
+<!-- select의 id에는 메소드명이 들어가야함 -->
+<!-- return 타입이 resultType과 같아야 함 -->
+<!-- 쿼리의 ? 에 들어가는 것과 id가 같아야 하는데 id를 머라하지 -->

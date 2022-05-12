@@ -1,6 +1,9 @@
 package org.zerock.mapper.ex02;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.zerock.domain.ex01.CustomerDto;
 import org.zerock.domain.ex01.EmployeeDto;
@@ -30,4 +33,16 @@ public interface Ex02Mapper {
 
 	@Insert("INSERT INTO Employees (LastName, FirstName, BirthDate, Photo, Notes) VALUES (#{lastName}, #{firstName}, #{birthDate}, #{photo}, #{notes} )")
 	int insertEmployee(EmployeeDto employee);
+	
+	@Select("SELECT EmployeeID id, FirstName, LastName, Photo, Notes, BirthDate FROM Employees ORDER BY EmployeeID ")
+	List<EmployeeDto> listEmployee();
+
+	@Select("SELECT CustomerID id, CustomerName, ContactName, Address, City, PostalCode, Country FROM Customers ORDER BY CustomerID ")
+	List<CustomerDto> listCustomer();
+
+	@Select("SELECT CustomerID id, CustomerName, ContactName, Address, City, PostalCode, Country FROM Customers LIMIT #{from}, #{row}")
+	List<CustomerDto> listCustomerPage(@Param("from")int from, @Param("row") int row);
+
+	@Select("SELECT Count(CustomerId) FROM Customers")
+	int countCustomers();
 }
