@@ -15,6 +15,7 @@ import org.zerock.service.ex03.Ex05Service;
 @Controller
 @RequestMapping("ex15")
 public class Ex15Controller {
+	
 	@Autowired
 	private Ex05Service service;
 	
@@ -56,7 +57,7 @@ public class Ex15Controller {
 		return "/ex15/board/get";
 	}
 	
-	@PostMapping("board/modify")
+	@PostMapping("/board/modify")
 	public String modifyBoard(BoardDto board) {
 		boolean success = service.updateBoard(board);
 		if(success) {
