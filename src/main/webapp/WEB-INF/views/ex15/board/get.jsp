@@ -12,10 +12,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<h1>${board.id }번 게시물 보기</h1>
-	<c:url value="/ex15/board/modify" var="modifyLink">	</c:url>
 	
-	<form action="${modifyLink }" method="post">
+	<%-- <c:url value="/ex15/board/modify" var="modifyLink"/> --%>
+	
+	<form action="${appRoot }/ex15/board/modify" method="post">
 	<input type="hidden" name="id" value="${board.id }" />
 	
 	제목 : <input type="text" value="${board.title }" name="title" /> <br />
@@ -26,5 +28,52 @@
 	
 	<button>수정</button>
 	</form>
+	
+	<!-- 삭제 form -->
+	<c:url value="/ex15/board/remove" var="removeLink"/>
+	<form action="${removeLink }" method="post">
+		<input type="hidden" name="id" value="${board.id }" />
+		<button>삭제</button>
+	</form>
+	
+	
+	<!-- 댓글 폼 -->
+	<h1>댓글</h1>
+	<c:url value="/ex16/reply/add" var="replyAddLink"/>
+	 <form action="${replyAddLink }" method="post">
+	 	<input type="hidden" name="boardId" value="${board.id }" />
+	 	댓글 : <input type="text" name="content" size="50" />
+	 	<button>쓰기</button>
+	 </form>
+	 
+	 <hr />
+	 
+	 <div>
+	 	<!-- 댓글 보여주기 -->
+	 	<c:forEach items="${replyList }" var="reply">
+	 		<div style="border: 1px solid black; margin-bottom:3px;">
+	 			${reply.inserted } :
+	 			
+	 			<!-- 댓글 수정하기 -->
+	 			<c:url value="/ex16/reply/modify" var="replyModifyLink"></c:url>
+	 			<form action="${replyModifyLink }" method="post">
+	 			<input type="hidden" name="id" value="${reply.id }" />
+	 			<input type="hidden" name="boardId" value="${board.id }" />
+	 			<input type="text" name="content" value="${reply.content }" />
+	 			 <button>수정</button>
+	 			
+	 			</form>
+	 			
+	 			<!-- 댓글 지우기 -->
+	 			<c:url value="/ex16/reply/remove" var="replyRemoveLink"/>
+	 			<form action="${replyRemoveLink }" method="post">
+	 				<input type="hidden" name="id" value="${reply.id }" />
+	 				<input type="hidden" name="boardId" value="${board.id }" />
+	 				<button>삭제</button>
+	 			
+	 			</form>
+	 		</div>
+	 	</c:forEach>
+	 </div>
 </body>
 </html>

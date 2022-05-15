@@ -4,12 +4,10 @@ import java.time.LocalDateTime;
 
 import lombok.Data;
 
-@Data // get,set 메소드 대신
-public class BoardDto {
+@Data
+public class ReplyDto {
 	private int id;
-	private String title;
-	private String body;
+	private int boardId; // board_id column과 매칭, 별칭 잘 쓸 것
+	private String content;
 	private LocalDateTime inserted;
-	
-	private int numOfReply;
 }
