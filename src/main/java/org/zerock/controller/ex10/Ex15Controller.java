@@ -17,6 +17,7 @@ import org.zerock.service.ex03.Ex06Service;
 @Controller
 @RequestMapping("ex15")
 public class Ex15Controller {
+	
 	@Autowired
 	private Ex05Service service;
 	
