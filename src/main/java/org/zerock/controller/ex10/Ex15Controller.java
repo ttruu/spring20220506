@@ -101,7 +101,7 @@ public class Ex15Controller {
 			
 		}
 		/* 댓글 있는 게시물 삭제하기 */
-		/* 댓글을 먼저 지워야 함 */
+		/* 댓글을 먼저 지워야 함--> 서비스에서 해줌 */
 		
 		return "redirect:/ex15/board/list";
 	}
