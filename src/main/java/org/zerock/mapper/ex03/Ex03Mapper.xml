@@ -35,6 +35,7 @@
   
   <insert id="insertBoard" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
   <!-- useGeneratedKeys : 새로 생선된 키 목록을 가져오라는 attribute  -->
+  <!-- db에서 auto_increment되는 id(또는 다른값)을 가져오기 위해 위 3가지를 사용함 -->
   <!-- keyColumn="id"의 id는 db에 있는 키컬럼 id 임 -->
   <!-- db에서 id를 가져왔으면 javabeans에 등록해줘야 함 그 때 사용하는게
   keyProperty="id" 얘는 자바빈즈의 프로퍼티임 -->

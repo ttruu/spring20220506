@@ -13,7 +13,6 @@
 </head>
 <body>
 	<c:url value="/ex15/board/write" var="writeLink"/>
-	
 	<h1><a href="${writeLink }">글 쓰기</a></h1>
 	
 	<h1>글 목록</h1>
